@@ -3,10 +3,10 @@
         <h1>{{ msg }}</h1>
         <form id="n_form">
             <p>選択肢 → [
-                <input type="radio" name="b1" value="A" @click="addData" required>A
-                <input type="radio" name="b1" value="B" @click="addData" required>B
-                <input type="radio" name="b1" value="C" @click="addData" required>C
-                <input type="radio" name="b1" value="D" @click="addData" required>D
+                <input type="radio" name="b1" value="1" @click="addData" required>1
+                <input type="radio" name="b1" value="2" @click="addData" required>2
+                <input type="radio" name="b1" value="3" @click="addData" required>3
+                <input type="radio" name="b1" value="4" @click="addData" required>4
                 ]
             </p>
         </form>
@@ -34,16 +34,13 @@
             // ボタンが押されたときの処理
             addData: function () {
                 // alert(document.getElementById("n_form").b1.value)
-                var unko = document.getElementById("n_form").b1.value
+                var num = document.getElementById("n_form").b1.value
 
-                // cgiに値の送信
-                axios.get('CGIのパス'+ "?" + unko)
-                    .then(loading => {
-                        this.textData = loading.data.toString()
-                    })
-                    .catch(err => {
-                        this.textData = '送信に失敗したで、ンフフｗ' + '\n : ' + err.toString()
-                    });
+                axios.post("ここにバックエンドのリンク")
+                    .then(send => {
+                        this.textData = send.data.text + "で送信中"
+                    },)
+                    .finally(this.textData = "そうしんしたで")
             }
         }
     }
