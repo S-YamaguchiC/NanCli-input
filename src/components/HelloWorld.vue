@@ -10,7 +10,7 @@
                 ]
             </p>
         </form>
-        <p v-text="textData">あいうえい</p>
+        <p v-text="textData">うぇうぇうぇｗ</p>
     </div>
 </template>
 
@@ -33,16 +33,18 @@
         methods: {
             // ボタンが押されたときの処理
             addData: function () {
-                // alert(document.getElementById("n_form").b1.value)
+
                 var num = document.getElementById("n_form").b1.value
 
-                axios.post("ここにバックエンドのリンク")
+                // cgiに値の送信(num->押したボタンの識別)
+                axios.post('ここにURL'+num)
                     .then(send => {
-                        this.textData = send.data.text + "で送信した"
+                        this.textData = num + "で送信した"
+                        console.log(send.status, this.textData)
                     },)
-                    // .catch(err => {
-                    //     this.textData = err.toString()
-                    // })
+                    .catch(err => {
+                        this.textData = "えらーでつｗ : " + err.toString()
+                    })
                     .finally(this.textData = "そうしんなう")
             }
         }
