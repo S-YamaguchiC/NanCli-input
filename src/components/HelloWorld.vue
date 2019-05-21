@@ -38,9 +38,12 @@
 
                 axios.post("ここにバックエンドのリンク")
                     .then(send => {
-                        this.textData = send.data.text + "で送信中"
+                        this.textData = send.data.text + "で送信した"
                     },)
-                    .finally(this.textData = "そうしんしたで")
+                    // .catch(err => {
+                    //     this.textData = err.toString()
+                    // })
+                    .finally(this.textData = "そうしんなう")
             }
         }
     }
