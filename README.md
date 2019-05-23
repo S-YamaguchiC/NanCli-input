@@ -1,29 +1,10 @@
-# clicker_input
+# Nanchatte-Clicker-input
 
-## Project setup
-```
-npm install
-```
+## 説明しよう！
+NanCli-outputとは、[これ](https://github.com/S-YamaguchiC/NanchatteClicker)の入力と出力を分けたうちの入力の部分である。以上  
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## なんくり（入力）の処理の流れ
+1. 起動します
+2. 選択肢のボタンを押します
+3. ``addData()``が呼ばれて、あるサーバー上のCGIに非同期通信で値を送信します
+4. おわり
